@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Event Handling</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <script src="js/vue.js"></script>
 </head>
 <body>
     <div class="container py-5" id="app">
@@ -13,7 +14,7 @@
         <ul class="list-group">
             <li v-for="framework in favoriteFrameworks" class="list-group-item d-flex justify-content-between align-items-center">
                 {{ framework.name }}   
-                <button class="btn btn-outline-primary">
+                <button class="btn btn-outline-primary" v-on:click="upvote(framework)">
                     Upvote
                     <span class="badge badge-primary badge-pill">{{ framework.votes }}</span>
                 </button>
@@ -21,7 +22,6 @@
         </ul>        
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script>
     new Vue({
         el: '#app',
@@ -31,6 +31,11 @@
                 { name: "React.js", votes: 0 },
                 { name: "Vue.js", votes: 0 },
             ]
+        },
+        methods: {
+            upvote(framework) {
+                framework.votes++
+            }
         }        
     })
     </script>
