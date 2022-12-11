@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>List Rendering</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <script src="js/vue.js"></script>
 </head>
 <body>
     <div class="container py-5" id="app">
@@ -17,22 +18,15 @@
                 <th>Stack Overflow Score</th>
                 <th>Overall Score</th>
             </tr>
-            <tr>
-                <td>ASP.NET</td>
-                <td></td>
-                <td>100</td>
-                <td>100</td>
-            </tr>
-            <tr>
-                <td>AngularJs</td>
-                <td>96</td>
-                <td>97</td>
-                <td>96</td>
+            <tr v-for="framework in topTenFrameworks">
+                <td>{{ framework.name }}</td>
+                <td>{{ framework.github }}</td>
+                <td>{{ framework.stackoverflow }}</td>
+                <td>{{ framework.overall }}</td>
             </tr>
         </table>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script>
     new Vue({    
         el: '#app',
