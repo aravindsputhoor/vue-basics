@@ -6,23 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Conditional Rendering</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <script src="js/vue.js"></script>
 </head>
 <body>
     <div class="container py-5" id="app">
-        <div class="alert alert-primary">
+        <div class="alert alert-primary" v-if="showAlertPrimary">
             v-if Alert
         </div>
-        <div class="alert alert-secondary">
+        <div class="alert alert-secondary" v-if="showAlertSecondary">
             v-show Alert
         </div>
 
         <div>
-            <button class="btn btn-primary">Toggle Message (v-if)</button>
-            <button class="btn btn-secondary">Toggle Message (v-show)</button>
+            <button class="btn btn-primary" v-on:click="showAlertPrimary = !showAlertPrimary">Toggle Message (v-if)</button>
+            <button class="btn btn-secondary" v-on:click="showAlertSecondary = !showAlertSecondary">Toggle Message (v-show)</button>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script>
     new Vue({
         el: '#app',
